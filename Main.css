@@ -1,0 +1,119 @@
+#topnav {
+    background-color: #333;
+    position: fixed;
+    width: 100%;
+    transition: top 0.3s; 
+    margin: center;
+}
+
+#topnav a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+}
+  
+#topnav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+.Main{
+    background-image: linear-gradient(to bottom right, #00AAFF , #FFD400 );
+    margin: 0;
+    padding: 0;
+    height: auto;
+}
+
+.Aboutus {
+    position: relative;
+    margin: 15%;
+    margin-top: 100px;
+    width: 75%;
+    background-color: rgba(240, 248, 255, 0.4);
+    border-radius: 5px;
+}
+.Aboutus p{
+    margin-left: 50px;
+    margin-right: 50px;
+}
+.Aboutus h1{
+    padding-top: 30px;
+    margin: 50px;
+}
+.Aboutus table{
+    float: middle;
+    margin: auto;
+    text-align: center;
+}
+.Aboutus td {
+    width: 200px;
+}
+.Aboutus table,th,td{
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+.Aboutus img{
+    height: auto;
+    width: 100%;
+    margin: auto;
+    padding-bottom: 40px;
+}
+.Aboutus #image{
+    margin: 50px;
+}
+
+.WhoWeAre {
+    margin: 15%;
+    margin-top: -10%;
+    width: 75%;
+    display: flex;
+}
+.First{
+    margin: auto;
+    width: 300px;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    background-color: rgba(240, 248, 255, 0.4);
+    border-radius: 5px;
+    padding-right: 3%;
+}
+.WhoWeAre img{
+    height: auto;
+    width: 100%;
+    margin: 5%;
+}
+.First p{
+    padding-left: 10%;
+}
+#WhoH1{
+    margin-left: 15%;
+    margin-bottom: 5%;
+}
+
+.Booking{
+    position: relative;
+    margin: 15%;
+    margin-top: 100px;
+    width: 75%;
+    background-color: rgba(240, 248, 255, 0.4);
+    border-radius: 5px;
+}
+.Booking h1{
+    text-align: center;
+    padding-top: 2%;
+}
+.Booking table{
+    float: middle;
+    margin: auto;
+    text-align: center;
+}
+.Booking td {
+    width: 200px;
+}
+.Booking table,th,td{
+    border: none;
+    border-collapse: collapse;
+}

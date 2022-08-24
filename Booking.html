@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking</title>
+    <link rel="stylesheet" href="Main.css">
+</head>
+<body class = "Main">
+    <nav class = navtop>
+        <div id="topnav">
+            <a href="Index.html">About us</a>
+            <a href="Index">Who we are</a>
+            <a href="#Booking">Booking</a>
+        </div>
+    </nav>
+
+    <div class = "Booking">
+        <h1>Booking</h1>
+
+        <table>
+            <tr>
+                <td><form action="/url" method="GET">
+                    <p>Patient Id</p>
+                    <input type="text">
+                </form>
+            </td>
+            <td>
+                <input type="date" id="start" name="Booking_Date"
+                min="2018-01-01" max="2018-12-31">
+            </td>
+            </tr>
+        </table>
+    </div>
+</body>
+<script>
+    document.getElementById("topnav").style.top = "0";
+</script>
+</html>
