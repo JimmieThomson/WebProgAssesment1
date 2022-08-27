@@ -11,30 +11,142 @@
     <nav class = navtop>
         <div id="topnav">
             <a href="Index.html">About us</a>
-            <a href="Index">Who we are</a>
+            <a href="Index.html">Who we are</a>
             <a href="#Booking">Booking</a>
+            <p class = "Logo">Russel Street Medical</p>
         </div>
     </nav>
 
-    <div class = "Booking">
-        <h1>Booking</h1>
+    <form name="myForm" action="Booking.html" onsubmit= "return SubmitButton()" method="post">
+        <div class = "Booking">
+            <h1>Booking</h1>
+            <table>
+                <tr>
+                    <td>
+                        <p>Patient Id</p>
+                        <input type="text" name = "PatientId" onkeyup="
+                        var start = this.selectionStart;
+                        var end = this.selectionEnd;
+                        this.value = this.value.toUpperCase();
+                        this.setSelectionRange(start, end);" required>
+                </td>
+                <td>
+                    <p>Booking Date</p>
+                    <input type="date" id="CalanderBooking" required/>
+                </td>
+                </tr>
+            </table>
+            <div class="select-size">
+                <input type="checkbox" name="9am" id="nineam" />
+                <input type="checkbox" name="12pm" id="twelvepm" />
+                <input type="checkbox" name="3pm" id="threepm" />
+            
+                <label for="nineam">9am - 12pm</label>
+                <label for="twelvepm">12pm - 3pm</label>
+                <label for="threepm">3pm - 6pm</label>
+            </div>
+            
+            <div class="Middle">
+                <label for="ReasonApp">Choose Reason</label>
 
-        <table>
-            <tr>
-                <td><form action="/url" method="GET">
-                    <p>Patient Id</p>
-                    <input type="text">
-                </form>
-            </td>
-            <td>
-                <input type="date" id="start" name="Booking_Date"
-                min="2018-01-01" max="2018-12-31">
-            </td>
-            </tr>
-        </table>
-    </div>
+                <select name="ReasonApp" id="ReasonApp">
+                <option value="PlsSel">Please Select</option>
+                <option value="ChildVaccShot">Childhood Vaccination Shots</option>
+                <option value="InfShot">Influenza Shot</option>
+                <option value="CovBosSho">Covid Booster Shot</option>
+                <option value="BloTest">Blood Test</option>
+                </select>
+
+                <div class = "BlankArea">
+                    <p class="Textbox"></p>
+                </div>
+                <input type="submit" value="Submit">
+            </div>
+        </div>
+    </form>
 </body>
 <script>
+    //setting the nav to the topbar
     document.getElementById("topnav").style.top = "0";
+
+    //Getting date to set into calander
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth() + 1; //January is 0!
+    var yyyy = today.getFullYear();
+    if (dd < 10) {
+    dd = '0' + dd;
+    }
+    if (mm < 10) {
+    mm = '0' + mm;
+    }        
+    today = yyyy + '-' + mm + '-' + dd;
+    document.getElementById("CalanderBooking").setAttribute("min", today);
+
+        const fruitSelect = document.getElementById('ReasonApp');
+        fruitSelect.addEventListener('change', (e) => {
+        const output = e.target.value;
+        if (output == "ChildVaccShot") {
+            printout = "A disclaimer that multiple vaccines are normally administered in combination and may cause the child to be sluggish or feverous for 24 – 48 hours afterwards"
+        }
+        else if (output == "InfShot"){
+            printout = "The best time to get vaccinated is in April and May each year for optimal protection over the winter months"
+        }
+        else if (output == "CovBosSho"){
+            printout = "Advice that everyone should arrange to have their third shot as soon as possible and adults over the age of 30 should have their fourth shot to protect against new variant strains"
+        }
+        else if (output == "BloTest"){
+            printout = "That some tests require some fasting ahead of time and that a staff member will advise them on this prior to the appointment"
+        }
+
+        document.querySelector('.Textbox').textContent = printout;
+        });
+
+    function SubmitButton() {
+        SumId = 0;
+        IdFoundValue = "";
+        Word = "";
+        var arr = {"A": 1, "B": 2, "C": 3, "D": 4, "E": 5, "F": 6, "G": 7, "H": 8, "I": 9, "J": 10, "K": 11, "L": 12, "M": 13, "N": 14, "O": 15, "P": 16, "Q": 17, "R": 18, "S": 19, "T": 20, "U": 21, "V": 22, "W": 23, "X": 24, "Y": 25, "Z": 26};
+
+        let PatientId = document.forms["myForm"]["PatientId"].value;
+        let Reason = document.forms["myForm"]["ReasonApp"].value;
+
+        PatientIdarr = Array.from(PatientId);
+
+        for (var key in PatientIdarr) {
+            var Character = PatientIdarr[key];
+            Word += " " + Character;
+            try{
+                if (isNaN(Character) == false){
+                    SumId += parseInt(Character);
+                }
+            }catch{
+                document.querySelector('.Textbox').textContent = "Error";
+            }
+        }
+
+        AlphabetValue = SumId % 26;
+
+        for (var key in arr) {
+            var value = arr[key];
+            if (value == AlphabetValue){
+                IdFoundValue = key;
+            }
+        }
+        let lastElement = PatientIdarr[PatientIdarr.length - 1];
+
+        lastElement = lastElement.toUpperCase();
+
+        if (lastElement != IdFoundValue){
+            alert("Patient Id is invalid! " + lastElement);
+            return false;
+        }
+        if (Reason == "PlsSel"){
+            alert("Please Select a reason");
+        } else {
+            return true;
+        }
+        return false;
+    }
 </script>
 </html>

@@ -3,7 +3,6 @@
     position: fixed;
     width: 100%;
     transition: top 0.3s; 
-    margin: center;
 }
 
 #topnav a {
@@ -44,7 +43,6 @@
     margin: 50px;
 }
 .Aboutus table{
-    float: middle;
     margin: auto;
     text-align: center;
 }
@@ -106,7 +104,6 @@
     padding-top: 2%;
 }
 .Booking table{
-    float: middle;
     margin: auto;
     text-align: center;
 }
@@ -116,4 +113,62 @@
 .Booking table,th,td{
     border: none;
     border-collapse: collapse;
+}
+.PillTime{
+    background-color: #ddd;
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 16px;
+}
+.Pill {
+    text-align: center;
+}
+.select-size{
+    text-align: center;
+}
+.select-size  input{
+    display: none;
+  }
+  
+  label {
+    display: inline-block;
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    border-radius: 10px;
+    line-height: 50px;
+    cursor: pointer
+  }
+  
+#nineam:checked ~ label[for="nineam"],
+#twelvepm:checked ~ label[for="twelvepm"],
+#threepm:checked ~ label[for="threepm"] {
+    background: rgb(204, 233, 40);
+}
+#nineam:not(:checked) ~ label[for="nineam"],
+#twelvepm:not(:checked) ~ label[for="twelvepm"],
+#threepm:not(:checked) ~ label[for="threepm"] {
+    background-color: #38b9fa;
+    color: rgb(0, 0, 0);
+}
+
+.BlankArea {
+    margin-top: 10px;
+    margin-left: 5%;
+}
+.Middle {
+    text-align: center;
+}
+.Logo{
+    float: right;
+    margin-right: 20px;
+    color: white;
+    font-family: "Times New Roman", Times, serif;
+    background-image: linear-gradient(to bottom right, #00AAFF , #FFD400 );
 }
